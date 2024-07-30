@@ -28,7 +28,7 @@ class CryptoCoinDetailsBloc
       final coinDetails =
           await coinsRepository.getCoinDetails(event.currencyCode);
 
-      emit(CryptoCoinDetailsLoaded(coinDetails));
+      emit(CryptoCoinDetailsLoaded(coinDetails as CryptoCoin));
     } catch (e, st) {
       emit(CryptoCoinDetailsLoadingFailure(e));
       GetIt.I<Talker>().handle(e, st);
